@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEST YOUR BRAIN Jimmy Neutron Test</title>
+<link rel="icon" href="https://image.tmdb.org/t/p/original/xOyHKUFEhvogSHnDbsa5E7ZYx9D.jpg" type="image/x-icon">
+</head>
+<body>  
+    <!--quizz title -->
+    <h1 style="text-align: center;">Test Your Basic Physics with Jimmy Neutron</h1>
+    
+    <!-- LOGO for web page  -->
+    <div style="position: absolute; top: 0; left: 0;">
+        <img src="https://cdn.custom-cursor.com/cursors/jimmy_neutron_1265.png" alt="Logo" style="width: 100px; border-radius: 50%;">
+    </div>
+
+    <br> <br> <br>
+    <!-- Questions section --> 
+    <div class="container">
+        <!-- question 1 -->
+        <div class="question"> 
+            <h2>The charge of an electron is</h2>
+            <ul id="options1">
+                <li><input type="radio" name="option1" id="option1a" value="option1"> e≈1.602</li>
+                <li><input type="radio" name="option1" id="option1b" value="option2"> e≈2</li>
+                <li><input type="radio" name="option1" id="option1c" value="option3"> e≈−1.602×10^−19</li>
+                <li><input type="radio" name="option1" id="option1d" value="option4"> e≈−1.602×10^+19</li>
+            </ul>
+            <div class="lamp" id="lamp1"></div>
+            <button onclick="checkAnswer('option1', 'lamp1')">Verify Answer</button>
+        </div>
+
+        <!-- question 2 -->
+        <div class="question"> 
+            <h2>The unit of electric charge in the International System of Units (SI) is:</h2>
+            <ul id="options2">
+                <li><input type="radio" name="option2" id="option2a" value="option1"> kilograms</li>
+                <li><input type="radio" name="option2" id="option2b" value="option2"> Watt</li>
+                <li><input type="radio" name="option2" id="option2c" value="option3"> Coulombs</li>
+                <li><input type="radio" name="option2" id="option2d" value="option4"> meters</li>
+            </ul>
+            <div class="lamp" id="lamp2"></div>
+            <button onclick="checkAnswer('option2', 'lamp2')">Verify Answer</button>
+        </div>
+
+        <!-- question 3 -->
+        <div class="question"> 
+            <h2>White light is:</h2>
+            <ul id="options3">
+                <li><input type="radio" name="option3" id="option3a" value="option1"> a monochromatic light</li>
+                <li><input type="radio" name="option3" id="option3b" value="option2"> any light that has white color</li>
+                <li><input type="radio" name="option3" id="option3c" value="option3"> Combination of all visible wavelengths of light in the electromagnetic spectrum</li>
+                <li><input type="radio" name="option3" id="option3d" value="option4"> None of the above</li>
+            </ul>
+            <div class="lamp" id="lamp3"></div>
+            <button onclick="checkAnswer('option3', 'lamp3')">Verify Answer</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Part -->
+    <script>
+        function checkAnswer(optionName, lampId) {
+            var options = document.getElementsByName(optionName);
+            var selectedOption = null;
+            var tab = Array.from(options)
+            tab.forEach(option => {
+                if (option.checked) {
+                    selectedOption = option.value;
+                }
+            });
+
+            const lamp = document.getElementById(lampId);
+            lamp.innerHTML = '';
+            if (selectedOption === 'option3') {
+                const lampIcon = document.createElement('img');
+                lampIcon.src = 'https://qph.cf2.quoracdn.net/main-qimg-bdda521d23faf96c66468cb20c6b8c58';
+                lamp.appendChild(lampIcon);
+            } else {
+                lamp.classList.remove('green');
+                const lampIcon = document.createElement('img');
+                lampIcon.src = 'https://media.tenor.com/udq1uD9WHSQAAAAM/oops.gif';
+                lamp.appendChild(lampIcon);
+            }
+        }
+    </script>
+</body>
+</html>
